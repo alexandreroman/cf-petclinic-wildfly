@@ -82,3 +82,21 @@ add an Owner, add him am a Pet and his Pet a visit.
 ## visit Spring Petclinic ##
 
 https://github.com/spring-projects/spring-petclinic
+
+## deploy to Cloud Foundry
+
+This project includes a manifest for deploying this app to Cloud Foundry:
+```yaml
+---
+applications:
+  - name: javaee7-petclinic
+    path: target/javaee7-petclinic-1.3-SNAPSHOT.war
+    random-route: true
+    buildpacks:
+      - https://github.com/cloudfoundry-community/jboss-buildpack.git
+```
+
+Deploying to Cloud Foundry is straightforward:
+```bash
+$ cf push
+```
